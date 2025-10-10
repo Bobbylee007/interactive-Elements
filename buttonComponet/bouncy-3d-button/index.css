@@ -42,8 +42,13 @@ body .container-button {
     background: var(--color-surface);
     color: var(--color-text);
     font-size: large;
-    box-shadow: 0px 4px 4px var(--color-surface)
+    box-shadow: 0px 4px 4px var(--color-surface);
+    cursor: pointer;
+    
 }
+
+/*========toggle theme======*/
+
 
 .switch{
     background-color: var(--color-);
@@ -53,15 +58,17 @@ body .container-button {
 
 .top-main{
     display: flex;
-    justify-content: end;
+    justify-content: center;
     padding: 24;
 }
-.top-main .theme{
-   
-    padding: calc(8px * 3), 8px;
-    width: calc(8px * 24);
-    height: 42px;
-    background: var(--color-container);
-    margin-right: 64px;
 
-}
+.top-main .btn-theme{
+    margin-top: 48px;
+    border: none;
+    border-radius: 100px;
+    outline: none;
+    cursor: pointer;
+    width: 64px;
+   height: 64px;
+    
+} 
