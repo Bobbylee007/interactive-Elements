@@ -8,9 +8,9 @@
     --color-bg: hsl(0, 0%, 100);
     --color-container:hsl(0, 0%, 95%);
     --color-surface: hsl(226, 71%, 52%);
-    --color-text: hsl(0, 0%, 90%);
+    --color-text: hsl(0, 2%, 12%);
+    --color-txt-btn: hsl(0, 0%, 90%);
 }
-
 body{
     font-family: 'Courier New', Courier, monospace;
     background-color: var(--color-bg);
@@ -24,7 +24,7 @@ body .btn-section{
     margin-top: 98px;
 }
 
-body .container-button {
+body .container{
     width: calc(1rem * 24);
     height: calc(1rem * 18);
     background-color: var(--color-container);
@@ -36,11 +36,11 @@ body .container-button {
 .container-button .btn{
     border: none;
     border-radius: 16px;
-    padding: calc(8px * 3), 8px;
+    padding: calc(8px * 3)px;
     width: calc(8px * 24);
     height: 42px;
     background: var(--color-surface);
-    color: var(--color-text);
+    color: var(--color-txt-btn);
     font-size: large;
     box-shadow: 0px 4px 4px var(--color-surface);
     cursor: pointer;
@@ -59,7 +59,8 @@ body .container-button {
 .top-main{
     display: flex;
     justify-content: center;
-    padding: 24;
+    padding: 24px;
+    margin-bottom: 32px;
 }
 
 .top-main .btn-theme{
@@ -72,3 +73,6 @@ body .container-button {
    height: 64px;
     
 } 
+section h2{
+    color: var(--color-text);
+}
