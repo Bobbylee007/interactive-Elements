@@ -1,8 +1,10 @@
 // Setup/logic
 
 //toggle Light and  Dark mode
+
 // let theme = document.getElementsByTagName("button")[1];
 const root = document.querySelector(":root");
+const btn = document.querySelector(".btn-theme");
 const img = document.querySelector("img");
 
 let darkMode = false;
@@ -14,7 +16,7 @@ let darkMode = false;
 //   }
 // });
 
-img.addEventListener("click", function changeTheme() {
+btn.addEventListener("click", function changeTheme() {
   if (!darkMode) {
     root.style.setProperty("--color-bg", "hsla(0, 0%, 8%, 1.00");
     root.style.setProperty("--color-container", "hsla(0, 1%, 18%, 1.00)");
@@ -28,3 +30,12 @@ img.addEventListener("click", function changeTheme() {
   }
   darkMode = !darkMode;
 });
+
+//Button interaction
+
+// const btnClass = document.querySelector(".btn-hover");
+// const btn = document.querySelector("#btn");
+
+// btn.addEventListener("click",  ()=> {
+//   btnClass.classList.toggle("btn-hover");
+// });
