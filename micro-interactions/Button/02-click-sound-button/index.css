@@ -1,0 +1,105 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.4s linear ;
+}
+
+:root{
+    --color-bg: hsl(0, 0%, 100);
+    --color-container:hsl(0, 0%, 95%);
+    --color-surface: hsl(226, 71%, 52%);
+    --color-text: hsl(0, 2%, 12%);
+    --clr-brd: hsl(226, 71%, 8%);
+    --clr-shd: hsl(226, 71%, 16%);
+    --color-txt-btn: hsl(0, 0%, 90%);
+}
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--color-bg);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-section{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.container{
+    width: calc(1rem * 24);
+    height: calc(1rem * 18);
+    background-color: var(--color-container);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*========Button style ======*/
+.container-button .btn{
+    border: none;
+    border-radius: 16px;
+    padding: calc(8px * 3)px;
+    width: calc(8px * 24);
+    height: 42px;
+    background: var(--color-surface);
+    color: var(--color-txt-btn);
+    font-size: large;
+    box-shadow: 0px 6px 6px var(--clr-shd);
+    cursor: pointer;
+    transform: translateY(-6px);
+    transition: translateY .2s ease-in ;  
+}
+.btn{
+    transform: translateY(0px);
+    border: 1px var(--clr-brd);
+    box-shadow: 0px 1px 4px var(--clr-shd);
+    cursor: pointer;
+}
+.btn:active {
+    transform: translateY(0px);
+    border: 1px var(--clr-brd);
+    box-shadow: 0px 1px 4px var(--clr-shd);
+    cursor: pointer;
+}
+
+/* .btn-active{
+    transform: translateY(0px);
+    border: 1px var(--clr-brd);
+    box-shadow: 0px 1px 4px var(--clr-shd);
+    cursor: pointer;
+} */
+
+/*========toggle theme ======*/
+.switch{
+    background-color: var(--color-);
+    width: calc(8px * 24);
+    height: 42px;
+}
+
+.top-main{
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    margin-bottom: 32px;
+}
+
+.top-main .btn-theme{
+    margin-top: 48px;
+    border: none;
+    border-radius: 100px;
+    outline: none;
+    cursor: pointer;
+    width: 64px;
+   height: 64px;
+    
+} 
+section h2,h3{
+    color: var(--color-text);
+}
+ 

@@ -1,22 +1,18 @@
 // Setup/logic
+/*- create button ui with html, css
+  - give the ui a default style 
+  - create a clicking efftect with active State (using transform, tranlate)
+  - or js to give click interaction by changing active state class 
+*/
 
 //toggle Light and  Dark mode
-
-// let theme = document.getElementsByTagName("button")[1];
 const root = document.querySelector(":root");
 const btn = document.querySelector(".btn-theme");
 const img = document.querySelector("img");
 
 let darkMode = false;
 
-// theme.addEventListener("click", (e) => {
-//   if (theme.e.target === "IMG") {
-//     root.style.setProperty("--color-bg", "hsl(0, 3%, 7%)");
-//     root.style.setProperty(" --color-container", "hsla(0, 0%, 8%, 1.00)");
-//   }
-// });
-
-btn.addEventListener("click", function changeTheme() {
+btn.addEventListener("click", () => {
   if (!darkMode) {
     root.style.setProperty("--color-bg", "hsla(0, 0%, 8%, 1.00");
     root.style.setProperty("--color-container", "hsla(0, 1%, 18%, 1.00)");
@@ -33,9 +29,9 @@ btn.addEventListener("click", function changeTheme() {
 
 //Button interaction
 
-// const btnClass = document.querySelector(".btn-hover");
-// const btn = document.querySelector("#btn");
+// const btnId = document.querySelector(".btn-hover");
+// const btn_active = document.querySelector(".btn-active");
 
-// btn.addEventListener("click",  ()=> {
-//   btnClass.classList.toggle("btn-hover");
+// btnId.addEventListener("click", () => {
+//   btn_active.classList.toggle(":active");
 // });
