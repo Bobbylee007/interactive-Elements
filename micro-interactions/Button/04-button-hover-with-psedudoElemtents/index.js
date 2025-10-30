@@ -19,6 +19,7 @@ btn.addEventListener("click", () => {
     root.style.setProperty("--color-bg", "hsla(0, 0%, 8%, 1.00");
     root.style.setProperty("--color-container", "hsla(0, 1%, 18%, 1.00)");
     root.style.setProperty("--color-text", "hsla(0, 9%, 91%, 1.00)");
+    root.style.setProperty("--clr-brd", "hsl(226, 71%, 52%)");
     img.setAttribute("src", "./asset/garden_sun-fill-16.svg");
   } else {
     root.style.setProperty("--color-bg", " hsl(0, 0%, 100)");

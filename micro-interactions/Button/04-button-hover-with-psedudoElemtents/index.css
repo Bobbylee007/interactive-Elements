@@ -11,7 +11,7 @@
     --color-container:hsl(0, 0%, 95%);
     --color-surface: hsl(226, 71%, 52%);
     --color-text: hsl(0, 2%, 12%);
-    --clr-brd: hsl(226, 71%, 8%);
+    --clr-brd:hsl(226, 71%, 52%);
     --clr-shd: hsl(226, 71%, 16%);
     --color-txt-btn: hsl(0, 0%, 90%);
     /* --color-accent-btn:  */
@@ -77,8 +77,8 @@ section h2,h3{
     padding: calc(8px * 3)px;
     width: calc(8px * 24);
     height: 42px;
-    background: var(--color-surface);
-    color: var(--color-txt-btn);
+    background: transparent;
+    color: var(--color-surface);
     font-size: large;
     cursor: pointer;
     transform: translateY(-6px);
@@ -87,27 +87,74 @@ section h2,h3{
 .btn{
     border: 1px solid var(--clr-brd);
     transform: translateY(0px);
-    box-shadow: 0px 1px 4px var(--clr-shd);
     position: relative;
     cursor: pointer;
 }
+
+/* 
+    /LOGIC
+ *- create button Ui
+ *- use before and  after pseduo element to creat top
+    and bottom border useing position, inset propert to place them
+ *- animate both psedou element when hover to reduce width to 0.
+ *- NB: 1 this can be reverse by using keyframe
+        2 also do logic when hover widht will increase 0 > x
+        remember to comment 1st logic and uncomment 2nd
+
+*/
+
+
 .btn::before{
     content: " ";
     position: absolute;
-    inset: 6px 58px;
+    inset: 6px 54px;
     width: 80px;
     height: 1px;
-    border: 2px solid; 
+    border: 1px solid var(--clr-brd);
+    transition: inset 0.s;
 }
 
 .btn::after {
     content: " ";
     position: absolute;
-    inset: 32px 58px;
+    inset: 32px 54px;
     width: 80px;
     height: 1px;
-    border: 2px solid;
+    border: 1px solid var(--clr-brd);
+    transition: inset 0.s;
 }
+.btn:hover::before {
+    position:absolute;
+    border: 0px;
+    inset: 0px, -100px;
+    width: 0px;
+}
+
+.btn:hover::after {
+    position:absolute;
+    border: 0px;
+    inset: 0px, -100px;
+    width: 0px;
+}
+
+/* ======increase width logic */
+/* .btn::after {
+    content: " ";
+    position: absolute;
+    width: 0;
+    inset: 32px 54px;
+    height: 1px;
+    transition: border 2.s ease-in;
+    transition: inset 2.s;
+}
+
+.btn:hover::after {
+    position: absolute;
+    border: 1px solid var(--clr-brd);
+    inset: 6px, 56px;
+    width: 80px
+} */
+
 
 .btn:active {
     transform: translateY(0px);
