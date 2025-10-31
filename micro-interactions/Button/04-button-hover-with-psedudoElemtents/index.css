@@ -38,6 +38,13 @@ section h2,h3{
     color: var(--color-text);
 }
  
+section{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+}
 
 
 
@@ -100,11 +107,12 @@ section h2,h3{
  *- NB: 1 this can be reverse by using keyframe
         2 also do logic when hover widht will increase 0 > x
         remember to comment 1st logic and uncomment 2nd
+        3 or modefy the class and use for other section
 
 */
 
 
-.btn::before{
+.btn-border::before{
     content: " ";
     position: absolute;
     inset: 6px 54px;
@@ -114,7 +122,7 @@ section h2,h3{
     transition: inset 0.s;
 }
 
-.btn::after {
+.btn-border::after {
     content: " ";
     position: absolute;
     inset: 32px 54px;
@@ -123,14 +131,14 @@ section h2,h3{
     border: 1px solid var(--clr-brd);
     transition: inset 0.s;
 }
-.btn:hover::before {
+.btn-border:hover::before {
     position:absolute;
     border: 0px;
     inset: 0px, -100px;
     width: 0px;
 }
 
-.btn:hover::after {
+.btn-border:hover::after {
     position:absolute;
     border: 0px;
     inset: 0px, -100px;
@@ -138,7 +146,7 @@ section h2,h3{
 }
 
 /* ======increase width logic */
-/* .btn::after {
+.btn-slide::after {
     content: " ";
     position: absolute;
     width: 0;
@@ -148,13 +156,45 @@ section h2,h3{
     transition: inset 2.s;
 }
 
-.btn:hover::after {
+.btn-slide:hover::after {
     position: absolute;
     border: 1px solid var(--clr-brd);
     inset: 6px, 56px;
     width: 80px
-} */
+}
 
+
+.btn-section .container-button .btn-rotate{
+    width: 96px; 
+    height: 96px;
+    border-radius: 50%;
+    /* border: 1px solid var(--color-surface); */
+    position: relative;
+}
+.btn-rotate::before{
+    content: " ";
+    border-radius: 50%;
+    border-top: 3px solid var(--color-surface);
+    border-bottom: 3px solid var(--color-surface);
+    position: absolute;
+    inset: -1px 0px;
+    transition: 500ms;
+    animation: circle 2s linear  infinite;
+    z-index: -1;
+}
+.btn-rotate:hover ::before{
+    animation-play-state: paused;
+}
+
+
+@keyframes circle {
+    0% {
+        transform: translate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 .btn:active {
     transform: translateY(0px);
