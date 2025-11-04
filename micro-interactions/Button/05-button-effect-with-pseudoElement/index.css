@@ -110,8 +110,8 @@ section .top-main{
     padding: calc(8px * 3)px;
     width: calc(8px * 24);
     height: 42px;
-    background: transparent;
-    color: var(--color-surface);
+    background: var(--color-surface);
+    color: var(--color-txt-btn);
     font-size: large;
     cursor: pointer;
     transform: translateY(-6px);
@@ -131,128 +131,22 @@ section .top-main{
     /LOGIC
  *- create button Ui
  *- use before and  after pseduo element to creat top
-    and bottom border useing position, inset propert to place them
- *- animate both psedou element when hover to reduce width to 0.
- *- NB: 1 this can be reverse by using keyframe
-        2 also do logic when hover widht will increase 0 > x
-        remember to comment 1st logic and uncomment 2nd
-        3 or modefy the class and use for other section
-
+ *- style span tag with light or transparent gray
+ 
 */
 
-
-.btn-border::before{
-    content: " ";
-    position: absolute;
-    inset: 6px 54px;
-    width: 80px;
-    height: 1px;
-    border: 1px solid var(--clr-brd);
-    transition: inset 0.s;
-}
-
-.btn-border::after {
-    content: " ";
-    position: absolute;
-    inset: 32px 54px;
-    width: 80px;
-    height: 1px;
-    border: 1px solid var(--clr-brd);
-    transition: inset 0.s;
-}
-.btn-border:hover::before {
-    position:absolute;
-    border: 0px;
-    inset: 0px, -100px;
-    width: 0px;
-}
-
-.btn-border:hover::after {
-    position:absolute;
-    border: 0px;
-    inset: 0px, -100px;
-    width: 0px;
-}
-
-
-
-/* ====== Slide, increase width logic ========= */
-
-/* 
-    /LOGIC
- *- create button Ui
- *- use after pseduo element to creat  bottom border 
- *- using position, inset property to place it at a precite location
- *- Transition psedou element when hover to increase width.
- *- NB:
-*/
-
-.btn-slide::after {
-    content: " ";
-    position: absolute;
-    width: 0;
-    inset: 32px 54px;
-    height: 1px;
-    transition: border 2.s ease-in;
-    transition: inset 2.s;
-}
-
-.btn-slide:hover::after {
-    position: absolute;
-    border: 1px solid var(--clr-brd);
-    inset: 6px, 56px;
-    width: 80px
-}
-
-
-.btn-section .container-button .btn-rotate{
-    width: 96px; 
+.btn-span span{
+    width: 96px;
     height: 96px;
     border-radius: 50%;
-    /* border: 1px solid var(--color-surface); */
-    position: relative;
+    background-color: hsla(204, 3%, 65%, 0.719);
 }
 
 
 
-/* ====== Border rotate logic ========= */
-
-/* 
-    /LOGIC
- *- create button Ui
- *- use before pseduo element to create  rounded border 
- *- using position, inset property to place it at a precite location
- *- Animate psedou element as page load to infinity.
- *- NB:
-*/
-
-.btn-rotate::before{
-    content: " ";
-    border-radius: 50%;
-    border-top: 3px solid var(--color-surface);
-    border-bottom: 3px solid var(--color-surface);
-    position: absolute;
-    inset: -1px 0px;
-    transition: 500ms;
-    animation: circle 2s linear  infinite;
-    z-index: -1;
-}
-
-.btn-rotate:hover ::before{
-    animation-play-state: paused;
-}
 
 
-/*======== Animation ========= */
 
-@keyframes circle {
-    0% {
-        transform: translate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
 
 .btn:active {
     transform: translateY(0px);

@@ -1,21 +1,33 @@
-*, ::before, ::after{
+/*======== Page Reset ========= */
+
+*,
+::before,
+::after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    transition: all 0.4s linear ;
+    transition: all 0.4s linear;
 }
 
+/*======== Variable & Style guide ========= */
 
-:root{
+
+:root {
     --color-bg: hsl(0, 0%, 100);
-    --color-container:hsl(0, 0%, 95%);
+    --color-container: hsl(0, 0%, 95%);
     --color-surface: hsl(226, 71%, 52%);
     --color-text: hsl(0, 2%, 12%);
-    --clr-brd: hsl(226, 71%, 8%);
+    --clr-brd: hsl(226, 71%, 52%);
     --clr-shd: hsl(226, 71%, 16%);
     --color-txt-btn: hsl(0, 0%, 90%);
+    /* --color-accent-btn:  */
 }
-body{
+
+
+
+/*======== Global style ========= */
+
+body {
     font-family: 'Courier New', Courier, monospace;
     background-color: var(--color-bg);
     height: 100vh;
@@ -24,7 +36,7 @@ body{
     align-items: center;
 }
 
-body .container{
+body .container {
     width: calc(1rem * 24);
     height: calc(1rem * 18);
     background-color: var(--color-container);
@@ -33,36 +45,58 @@ body .container{
     justify-content: center;
 }
 
-section h2,h3{
+section h2,
+h3 {
     color: var(--color-text);
 }
- 
+
+h2 {
+    font-size: clamp(2rem, 1VW, 2.5rem);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 1VW, 2rem);
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+}
+
+section .top-main {
+    margin: 8px 0px;
+    height: 16px;
+}
 
 
 
 /*========toggle theme ======*/
 
-.top-main{
+.toggle {
     display: flex;
     justify-content: center;
     padding: 24px;
-    margin-bottom: 32px;
+    margin-bottom: 8px;
 }
 
-.top-main .btn-theme{
-    margin-top: 48px;
+.toggle .btn-theme {
     border: none;
     border-radius: 100px;
     outline: none;
     cursor: pointer;
     width: 64px;
-   height: 64px;
-    
-} 
+    height: 64px;
+
+}
 
 
 /*========Button style ======*/
-.btn-section{
+
+.btn-section {
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -70,27 +104,160 @@ section h2,h3{
     justify-content: center;
     margin-top: 8px;
 }
-.container-button .btn{
+
+.container-button .btn {
     border: none;
     border-radius: 16px;
     padding: calc(8px * 3)px;
     width: calc(8px * 24);
     height: 42px;
-    background: var(--color-surface);
-    color: var(--color-txt-btn);
+    background: transparent;
+    color: var(--color-surface);
     font-size: large;
     cursor: pointer;
     transform: translateY(-6px);
-    transition: translateY .2s ease-in ;  
+    transition: translateY .2s ease-in;
 }
-.btn{
+
+.btn {
     border: 1px solid var(--clr-brd);
-    outline: 2px solid ;
     transform: translateY(0px);
-    border: 1px var(--clr-brd);
-    box-shadow: 0px 1px 4px var(--clr-shd);
+    position: relative;
     cursor: pointer;
 }
+
+
+/* ====== Border  ========= */
+
+/* 
+    /LOGIC
+ *- create button Ui
+ *- use before and  after pseduo element to creat top
+    and bottom border useing position, inset propert to place them
+ *- animate both psedou element when hover to reduce width to 0.
+ *- NB: 1 this can be reverse by using keyframe
+        2 also do logic when hover widht will increase 0 > x
+        remember to comment 1st logic and uncomment 2nd
+        3 or modefy the class and use for other section
+
+*/
+
+
+.btn-border::before {
+    content: " ";
+    position: absolute;
+    inset: 6px 54px;
+    width: 80px;
+    height: 1px;
+    border: 1px solid var(--clr-brd);
+    transition: inset 0.s;
+}
+
+.btn-border::after {
+    content: " ";
+    position: absolute;
+    inset: 32px 54px;
+    width: 80px;
+    height: 1px;
+    border: 1px solid var(--clr-brd);
+    transition: inset 0.s;
+}
+
+.btn-border:hover::before {
+    position: absolute;
+    border: 0px;
+    inset: 0px, -100px;
+    width: 0px;
+}
+
+.btn-border:hover::after {
+    position: absolute;
+    border: 0px;
+    inset: 0px, -100px;
+    width: 0px;
+}
+
+
+
+/* ====== Slide, increase width logic ========= */
+
+/* 
+    /LOGIC
+ *- create button Ui
+ *- use after pseduo element to creat  bottom border 
+ *- using position, inset property to place it at a precite location
+ *- Transition psedou element when hover to increase width.
+ *- NB:
+*/
+
+.btn-slide::after {
+    content: " ";
+    position: absolute;
+    width: 0;
+    inset: 32px 54px;
+    height: 1px;
+    transition: border 2.s ease-in;
+    transition: inset 2.s;
+}
+
+.btn-slide:hover::after {
+    position: absolute;
+    border: 1px solid var(--clr-brd);
+    inset: 6px, 56px;
+    width: 80px
+}
+
+
+.btn-section .container-button .btn-rotate {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    /* border: 1px solid var(--color-surface); */
+    position: relative;
+}
+
+
+
+/* ====== Border rotate logic ========= */
+
+/* 
+    /LOGIC
+ *- create button Ui
+ *- use before pseduo element to create  rounded border 
+ *- using position, inset property to place it at a precite location
+ *- Animate psedou element as page load to infinity.
+ *- NB:
+*/
+
+.btn-rotate::before {
+    content: " ";
+    border-radius: 50%;
+    border-top: 3px solid var(--color-surface);
+    border-bottom: 3px solid var(--color-surface);
+    position: absolute;
+    inset: -1px 0px;
+    transition: 500ms;
+    animation: circle 2s linear infinite;
+    z-index: -1;
+}
+
+.btn-rotate:hover ::before {
+    animation-play-state: paused;
+}
+
+
+/*======== Animation ========= */
+
+@keyframes circle {
+    0% {
+        transform: translate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .btn:active {
     transform: translateY(0px);
     border: 1px var(--clr-brd);
@@ -99,11 +266,25 @@ section h2,h3{
 }
 
 
-.btn:hover {
-    outline-offset: 3px ;
-    cursor: pointer;
-}
-.btn:focus {
-    outline-offset: 3px ;
-    
+/* ======= Responsiveness =========  */
+
+@media screen and (max-width: 680px) {
+    body {
+        padding: 48px 0px;
+        width: 100%;
+    }
+
+    body section {
+        padding: 24px;
+        margin: 32px 0px;
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    body section .container {
+        padding: 24px;
+        margin: 32px 0px;
+        width: 100%;
+    }
 }
