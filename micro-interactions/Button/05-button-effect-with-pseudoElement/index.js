@@ -45,17 +45,20 @@ btn.addEventListener("click", () => {
 
 */
 
-const btnId = document.querySelector("btnId");
+let btnId = document.querySelectorAll("button");
 
 btnId.forEach((btn) => {
-  btnId.addEventListener("click", (e) => {
-    let x = e.pageX - e.targetX;
-    let y = e.pageY - e.targetY;
+  btn.addEventListener("click", function(e){
+
+    let x = e.clientX - e.target.offsetLeft;
+    let y = e.clientY - e.target.offsetTop;
 
     const ripple = document.createElement("span");
+    ripple.classList.add('ripple')
     ripple.style.left = x + "px";
-    ripple.style.right = y + "px";
-    this.appendchild(ripple);
+    ripple.style.top = y + "px";
+    
+    btn.appendChild(ripple);
 
     setTimeout(() => {
       ripple.remove();

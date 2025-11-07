@@ -118,10 +118,12 @@ section .top-main{
     transition: translateY .2s ease-in ;  
 }
 .btn{
+    position: relative;
     border: 1px solid var(--clr-brd);
     transform: translateY(0px);
     position: relative;
     cursor: pointer;
+    overflow: hidden;
 }
 
 
@@ -135,25 +137,43 @@ section .top-main{
  
 */
 
-.btn-span span{
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    background-color: hsla(204, 3%, 65%, 0.719);
-}
-
-
-
-
-
-
-
 .btn:active {
     transform: translateY(0px);
     border: 1px var(--clr-brd);
     box-shadow: 0px 1px 4px var(--clr-shd);
     cursor: pointer;
 }
+
+.btnId .ripple{
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background-color: hsla(204, 3%, 65%, 0.719);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: ripple 2s linear ;
+}
+
+
+
+/* ======= Animation =========  */
+@keyframes ripple {
+    0%{
+        width: 0px;
+        height: 0px;
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.9;
+    }
+    100%{
+        width: 500px;
+        height: 500px;
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+    }
+}
+
+
 
 
 /* ======= Responsiveness =========  */
