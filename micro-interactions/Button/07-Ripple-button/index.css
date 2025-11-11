@@ -1,0 +1,234 @@
+
+
+
+/*======== Page Reset ========= */
+
+*, ::before, ::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.4s linear ;
+}
+
+/*======== Variable & Style guide ========= */
+
+
+:root{
+    --color-bg: hsl(0, 0%, 100);
+    --color-container:hsl(0, 0%, 95%);
+    --color-surface: hsl(226, 71%, 52%);
+    --color-text: hsl(0, 2%, 12%);
+    --clr-brd:hsl(226, 71%, 52%);
+    --clr-shd: hsl(226, 71%, 16%);
+    --color-txt-btn: hsl(0, 0%, 90%);
+    /* --color-accent-btn:  */
+}
+
+
+
+/*======== Global style ========= */
+
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--color-bg);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body .container{
+    width: calc(1rem * 24);
+    height: calc(1rem * 18);
+    background-color: var(--color-container);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section h2,h3{
+    color: var(--color-text);
+}
+
+h2{
+    font-size: clamp(2rem, 1VW, 2.5rem);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 1VW, 2rem);
+}
+section{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+}
+
+section .top-main{
+    margin: 8px 0px;
+    height: 16px;
+}
+
+
+
+/*========toggle theme ======*/
+
+.toggle{
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    margin-bottom: 8px;
+    
+}
+
+.toggle .btn-theme{
+    position: relative;
+    border: none;
+    border-radius: 100px;
+    outline: none;
+    cursor: pointer;
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    
+} 
+
+
+/*========Button style ======*/
+
+.btn-section{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.container-button .btn{
+    border: none;
+    border-radius: 16px;
+    padding: calc(8px * 3)px;
+    width: calc(8px * 24);
+    height: 42px;
+    background: var(--color-surface);
+    color: var(--color-txt-btn);
+    font-size: large;
+    cursor: pointer;
+    transform: translateY(-6px);
+    transition: translateY .2s ease-in ;  
+}
+.btn{
+    position: relative;
+    border: 1px solid var(--clr-brd);
+    transform: translateY(0px);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.btn:active {
+    transform: translateY(0px);
+    border: 1px var(--clr-brd);
+    box-shadow: 0px 1px 4px var(--clr-shd);
+    cursor: pointer;
+}
+
+
+/* ====== Border  ========= */
+
+/* 
+    /LOGIC
+    *- create button Ui
+    *- style span tag with light or transparent gray
+    *- create a class ripple and animate it
+*/
+
+.btnId .ripple{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: hsla(200, 1%, 61%, 0.719);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: ripple 1s linear ;
+}
+
+.btn-span-border .ripple {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 8px solid hsla(200, 1%, 61%, 0.719);
+    background-color: none ;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: ripple 1s linear;
+}
+
+/* ======= Animation =========  */
+@keyframes ripple {
+    0%{
+        width: 0px;
+        height: 0px;
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.9;
+    }
+    100%{
+        width: 500px;
+        height: 500px;
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+    }
+}
+
+
+
+
+/* ======= Responsiveness =========  */
+
+@media  screen and (max-width: 680px){
+    body{
+        padding: 48px 0px;
+        width: 100%;
+    }
+    
+    body section {
+        padding: 24px;
+        margin: 32px 0px;
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+    body section .container {
+        padding: 24px;
+        margin: 32px 0px;
+        width: 100%;
+    }
+
+    /* .btnId .ripple {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: hsla(200, 1%, 61%, 0.719);
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        animation: ripple 2s linear;
+    }
+
+    .btn-span-border .ripple {
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 8px solid hsla(200, 1%, 61%, 0.719);
+        background-color: none;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        animation: ripple 2s linear;
+    } */
+}

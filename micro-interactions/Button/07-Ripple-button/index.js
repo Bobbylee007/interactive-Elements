@@ -1,4 +1,5 @@
 // Setup/logic
+
 /*- create button ui with html, css
   - give the ui a default style 
   - create a clicking efftect with active State (using transform, tranlate)
@@ -12,7 +13,6 @@ const btn = document.querySelector(".btn-theme");
 const img = document.querySelector("img");
 
 let darkMode = false;
-
 
 btn.addEventListener("click", () => {
   if (!darkMode) {
@@ -30,4 +30,37 @@ btn.addEventListener("click", () => {
   darkMode = !darkMode;
 });
 
+//Ripple Effect
 
+/*- create button & span tag ui with html, css
+  - give the ui a default style 
+  - create a clicking efftect with active State (using transform, tranlate)
+  - or js to give click interaction by changing active state class 
+  - select all the button Dom elements
+  - use forEach loop to loop through all button when click
+  - add event listener to button dom passing in (e) object in funct arg 
+  - inside block code create x,y variable called ripple and assign it with page(x,y) or client(x,y)
+    and decrease with mouse target(x,y) property
+  - append ripple to the btnId object using this key word
+
+*/
+
+let btnId = document.querySelectorAll("button");
+
+btnId.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    let x = e.clientX - e.target.offsetLeft;
+    let y = e.clientY - e.target.offsetTop;
+
+    const ripple = document.createElement("span");
+    ripple.classList.add("ripple");
+    ripple.style.left = x + "px";
+    ripple.style.top = y + "px";
+
+    btn.appendChild(ripple);
+
+    setTimeout(() => {
+      ripple.remove();
+    }, 1000);
+  });
+});
