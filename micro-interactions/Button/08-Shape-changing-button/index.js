@@ -45,22 +45,14 @@ btn.addEventListener("click", () => {
 
 */
 
-let btnId = document.querySelectorAll("button");
+let btnId = document.querySelector(".btn");
+let btnShape = document.querySelector(".btn-shape");
+let checkIcon = document.querySelector(".check");
 
-btnId.forEach((btn) => {
-  btn.addEventListener("click", function (e) {
-    let x = e.clientX - e.target.offsetLeft;
-    let y = e.clientY - e.target.offsetTop;
-
-    const ripple = document.createElement("span");
-    ripple.classList.add("ripple");
-    ripple.style.left = x + "px";
-    ripple.style.top = y + "px";
-
-    btn.appendChild(ripple);
-
-    setTimeout(() => {
-      ripple.remove();
-    }, 1000);
-  });
+btnId.addEventListener("click", () => {
+  btnId.getAttribute("class");
+  btnId.setAttribute("class", "btn-shape");
+  btnId.innerText = "";
+  checkIcon.style.display = "flex ";
+  inPlace != false;
 });
