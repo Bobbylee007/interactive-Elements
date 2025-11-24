@@ -10,7 +10,7 @@
 //toggle Light and  Dark mode
 const root = document.querySelector(":root");
 const btn = document.querySelector(".btn-theme");
-const img = document.querySelector("img");
+const img = document.querySelector(".toggle-icon");
 
 let darkMode = false;
 
@@ -43,17 +43,3 @@ btn.addEventListener("click", () => {
 
 */
 
-const toggleBtn = document.querySelector(".icon-toggle");
-let icon = document.querySelector(".iconSwitch");
-let iconCheck = false;
-
-toggleBtn.addEventListener("click", () => {
-  toggleBtn.classList.toggle("active");
-
-  if (!iconCheck) {
-    icon.setAttribute("src", "./asset/sun.svg");
-  } else {
-    icon.setAttribute("src", "./asset/moon.svg");
-  }
-  iconCheck = !iconCheck;
-});

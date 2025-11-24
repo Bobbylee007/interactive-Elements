@@ -117,43 +117,24 @@ section .top-main{
     margin-top: 8px;
 }
 
-
-.icon-toggle{
-    position: relative;
-    border-radius: 90px;
-    background-color: #232323;
-    width: 64px;
-    height: 24px;
-    cursor: pointer;
-    transition: all 0.4s ease;
-
-}
-.icon{
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 2px solid #a39b9b;
-    background-color: #464545;
+ .btn {
+    border-radius: 16px;
+    padding: calc(8px * 3)px;
+    width: calc(8px * 24);
+    height: 42px;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: -4px;
-    left: -1px;
-    transition: all 150ms ease;
-}
-
-.icon-toggle.active{
-    background-color: var(--color-surface); 
-}
-
-.icon-toggle.active .icon{
-    left: calc(100% - 50%);
     background: var(--color-surface);
-    border: 2px solid #232323;
-    outline: 2px solid white;
-    animation: spin 0.2s ease forwards;
+    cursor: pointer;
+    position: relative;
 }
+
+.btn .icon-shaky{
+    position: absolute;
+    transition: all 0.4s ease-in ;
+}
+
 
 /* ====== animate  ========= */
 @keyframes spin {
