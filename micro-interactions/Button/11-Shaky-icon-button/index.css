@@ -127,23 +127,44 @@ section .top-main{
     align-items: center;
     background: var(--color-surface);
     cursor: pointer;
-    position: relative;
+    transition: 0.5s;
 }
 
-.btn .icon-shaky{
-    position: absolute;
-    transition: all 0.4s ease-in ;
+.btn-bell:hover {
+    padding: calc(8px * 2)px;
+    width: calc(8px * 8);
+    
+
 }
 
+.btn-bell:hover .icon-shaky {
+    animation: shake 1s ease-in-out infinite alternate;
+
+}
+
+.btn-jittery:hover {
+    padding: calc(8px * 2)px;
+    width: calc(8px * 8);
+
+    
+
+}
+
+.btn-jittery:hover .icon-shaky {
+    animation-play-state: paused;
+}
 
 /* ====== animate  ========= */
-@keyframes spin {
+@keyframes shake {
     0%{
-        transform: rotate(0.2turn);
+        transform: rotate(0deg) scale(0.2);
+    }
+    75% {
+      transform: rotate(-10deg) scale(1.2);
     }
     100% {
-             transform: rotate(2turn);
-    }
+        transform: rotate(10deg) scale(1.5);
+     }
 }
 
 
