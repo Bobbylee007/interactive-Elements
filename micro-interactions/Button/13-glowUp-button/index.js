@@ -10,7 +10,7 @@
 //toggle Light and  Dark mode
 const root = document.querySelector(":root");
 const btn = document.querySelector(".btn-theme");
-const img = document.querySelector(".toggle-icon");
+const img = document.querySelector("img");
 
 let darkMode = false;
 
@@ -43,10 +43,17 @@ btn.addEventListener("click", () => {
 
 */
 
-const btnJittery = document.querySelectorAll("bnt-bell");
+const toggleBtn = document.querySelector(".icon-toggle");
+let icon = document.querySelector(".iconSwitch");
+let iconCheck = false;
 
-btnJittery.forEach((btn) => {
-  btn.addEventListener("mousedown", () => {
-    btn.classList.add("btn-jittery");
-  });
+toggleBtn.addEventListener("click", () => {
+  toggleBtn.classList.toggle("active");
+
+  if (!iconCheck) {
+    icon.setAttribute("src", "./asset/sun.svg");
+  } else {
+    icon.setAttribute("src", "./asset/moon.svg");
+  }
+  iconCheck = !iconCheck;
 });
